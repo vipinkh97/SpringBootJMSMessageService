@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,12 +54,12 @@ public class ReceiverController {
 	}
 	
 	@RequestMapping("/getFavouritecar/{id}")
-	public FavouriteCar getFavouritecar(String id){
+	public FavouriteCar getFavouritecar(@PathVariable String id){
 		return carRepository.findById(id).get();
 	}
 	
 	@RequestMapping("/getEmail/{id}")
-	public Email getEmail(String id){
+	public Email getEmail(@PathVariable String id){
 		return emailRepository.findById(id).get();
 	}
 	
